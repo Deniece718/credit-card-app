@@ -10,15 +10,8 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
-    },
     "web": {
-      "output": "static",
+      "output": "static"
     },
     "plugins": [
       "expo-router",
