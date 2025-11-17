@@ -7,7 +7,7 @@ export default function RootLayout() {
           <Stack>
             <Stack.Screen name="index" options={{ title: "Dashboard" }} />
             <Stack.Screen name="support" options={{ title: "Support" }} />
-            <Stack.Screen name="cards/[cardId]/cardDetail" options={{ title: "Card Image" }} />
+            <Stack.Screen name="cards/[cardId]/cardDetail" options={{ title: "Card Detail" }} />
             <Stack.Screen name="cards/[cardId]/invoice" options={{ title: "Card Invoice" }} />
             <Stack.Screen name="cards/[cardId]/spendingLimit" options={{ title: "Card Spending Limit" }} />
             <Stack.Screen name="cards/[cardId]/transaction" options={{ title: "Transaction" }} />
