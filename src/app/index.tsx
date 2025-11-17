@@ -44,6 +44,7 @@ export default function DashboardScreen() {
         .then((res) => {
           const list = Array.isArray(res.data?.data) ? res.data.data : [];
           setCards(list);
+          setIsActivated(false);
         })
         .catch(console.error);
     }, [selectedCompanyId]);
@@ -186,6 +187,7 @@ export default function DashboardScreen() {
         
 
         {/* Remaining spend */}
+        {/* TODO: Keep the dashboard company and card unchange after updating the spending limit*/}
         <View style={styles.card}>
           <Text style={styles.title}>Remaining spend</Text>
           <TouchableOpacity
@@ -213,6 +215,7 @@ export default function DashboardScreen() {
               keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => (
                 <View style={styles.transaction}>
+                  <Text>{new Date(item.date).toISOString().slice(0,10)}</Text>
                   <Text>{item.description}</Text>
                   <Text>{item.amount}</Text>
                 </View>
@@ -243,7 +246,7 @@ export default function DashboardScreen() {
         <TouchableOpacity 
           style={[styles.button, styles.primary]} 
           onPress={() => {
-            if (cardData) {
+            if (cardData && new Date(cardData.expirationDate).getTime() > new Date().getTime()) {
               updateCardState(cardData.id);
             }
           }
